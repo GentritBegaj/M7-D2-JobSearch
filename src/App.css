@@ -1,38 +1,161 @@
-.App {
-  text-align: center;
+/* COLOURS
+#0D0221 - Black
+#F8F4E3 - White
+#D7263D - Red
+#7776BC - Purple
+#2FBF71 - Green
+*/
+
+:root {
+  --tBlack: #0d0221;
+  --tWhite: #f8f4e3;
+  --tRed: #d7263d;
+  --tPurple: #7776bc;
+  --tGreen: #2fbf71;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--tWhite);
+  font-family: "Inconsolata", monospace;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#main-nav {
+  background-color: var(--tWhite);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#main-nav a {
+  color: var(--tBlack);
+  font-weight: bold;
+  padding: 6px 20px;
+  margin: 0px 14px;
+  border-bottom: 1px solid transparent;
+  position: relative;
+  border-radius: 0.05rem;
 }
 
-.App-link {
-  color: #61dafb;
+#main-nav a:hover {
+  background-color: var(--tBlack);
+  color: var(--tWhite);
+  text-decoration: none;
+  font-weight: normal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#main-nav .logo-container {
+  background-color: var(--tWhite);
+  padding: 4px 6px;
+  border-radius: 0.05rem;
+  position: relative;
+}
+
+#main-nav .logo-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -6px;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--tPurple);
+}
+
+#main-nav .logo-container .fa-dev {
+  font-size: 1.5rem;
+}
+
+#main-search {
+  background-color: var(--tBlack);
+  padding: 30px 20px;
+  color: var(--tWhite);
+  border-radius: 0.15rem;
+}
+
+#main-search input {
+  padding: 14px;
+  border: none;
+  border-radius: 0.15rem;
+}
+
+.search-btn {
+  background-color: var(--tPurple);
+  border-color: var(--tPurple);
+  transform: scale(1);
+  padding: 6px 16px;
+  margin-bottom: 7px;
+  transition: transform 0.15s ease-in-out;
+}
+
+.search-btn:hover {
+  transform: scale(1.04);
+  background-color: var(--tPurple);
+  border-color: var(--tPurple);
+}
+
+.search-btn:active {
+  background-color: var(--tPurple) !important;
+  border-color: var(--tPurple) !important;
+  box-shadow: none !important;
+}
+
+.search-btn:focus {
+  background-color: var(--tPurple) !important;
+  border-color: var(--tPurple) !important;
+  box-shadow: none !important;
+}
+
+.search-result {
+  padding: 20px 20px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: -4px 4px 0px var(--tBlack);
+}
+
+.search-result img {
+  height: 50px;
+  width: 50px;
+}
+
+.search-result h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-result .job-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-result .job-type {
+  background-color: var(--tBlack);
+  color: var(--tWhite);
+  padding: 2px 10px;
+}
+
+#job-detail-main {
+  padding: 50px;
+}
+
+#job-detail-main img {
+  height: 100px;
+  width: 100px;
+}
+
+/* Global Styles */
+
+.dark-background {
+  background-color: var(--tBlack) !important;
+}
+
+.light-background {
+  background-color: var(--tWhite) !important;
+}
+
+.light-text {
+  color: var(--tWhite) !important;
+}
+
+.dark-text {
+  color: var(--tBlack) !important;
 }

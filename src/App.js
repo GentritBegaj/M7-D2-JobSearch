@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import NavBar from "./components/NavBar";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import MainSearch from "../src/components/MainSearch";
+import JobDetails from "../src/components/JobDetails";
 
 function App() {
+  const [selectedJob, setSelectedJob] = useState({});
+
+  const selectJobHandler = (data) => {
+    setSelectedJob(data);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route path="/" component={NavBar} />
+      <Route
+        path="/"
+        exact
+        render={(routerProps) => (
+          <MainSearch {...routerProps} selectJobHandler={selectJobHandler} />
+        )}
+      />
+      <Route path="/:id" exact>
+        <JobDetails data={selectedJob} />
+      </Route>
+    </Router>
   );
 }
 
